@@ -4,12 +4,25 @@ const http=require("http")
 const cors=require("cors")
 const {Server}= require("socket.io")
 
+const path=require('path');
+
 app.use(cors())
+
+//connect build of react app with nodejs
+app.use(express.static(path.join(__dirname,"../client/build")))
+
+//   ---------------deployment----------------
+app.get('/',(req,res)=>{
+    app.use(express.static(path.resolve(__dirname,"../client/build")))
+    res.sendFile(path.resolve(__dirname,"../client/build","index.html"))
+  })
+  
+  // ---------------deployment----------------
 
 const server=http.createServer(app);
 const io=new Server(server,{
     cors:{
-        origin: "http://localhost:3000",
+        origin: "https://reactchatapp.herokuapp.com",
         methods: ["GET","POST"],
     }
 }) 

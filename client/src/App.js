@@ -4,7 +4,7 @@ import { useState } from "react";
 import Chat from "./Chat";
 import Image from "./images/logo.png"
 
-const socket = io.connect("http://localhost:3001");
+const socket = io.connect("/");
 
 function App() {
   const [username, setUsername] = useState("");
