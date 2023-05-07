@@ -13,8 +13,8 @@ app.use(express.static(path.join(__dirname,"./client/build")))
 
 //   ---------------deployment----------------
 app.get('/',(req,res)=>{
-    app.use(express.static(path.resolve(__dirname,"./client/build")))
-    res.sendFile(path.resolve(__dirname,"./client/build","index.html"))
+    app.use(express.static(path.resolve(__dirname,'./client/build')))
+    res.sendFile(path.resolve(__dirname,'./client/build','index.html'))
   })
   
   // ---------------deployment----------------
@@ -22,7 +22,7 @@ app.get('/',(req,res)=>{
 const server=http.createServer(app);
 const io=new Server(server,{
     cors:{
-        origin: "https://reactchatapp.herokuapp.com",
+        origin: "https://chat-app-tan-two.vercel.app",
         methods: ["GET","POST"],
     }
 }) 
