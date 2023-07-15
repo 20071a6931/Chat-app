@@ -22,7 +22,7 @@ app.get('/',(req,res)=>{
 const server=http.createServer(app);
 const io=new Server(server,{
     cors:{
-        origin: "https://react-chat-app.onrender.com",
+        origin: "https://react-chat-app-i0p2.onrender.com",
         methods: ["GET","POST"],
     }
 }) 
